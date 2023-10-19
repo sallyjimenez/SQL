@@ -30,17 +30,17 @@ VALUES
 
 #ANALYSIS:
 
-#Use SELECT statement to order the items by price.
+#Use SELECT & DESC statement to order the items by price from highest-lowest
 SELECT item_name, price
 FROM superstore
 ORDER BY price DESC;
 
 #Show a statistic about the item prices
-SELECT SUM(prices)
+SELECT SUM(price) AS Total
 FROM superstore;
 
 #Show a statistic about the price for items in the category of "Kitchen Supplies"
-SELECT SUM(prices)
+SELECT SUM(price) AS Kitchen_Supplies_total
 FROM superstore
 WHERE category = "Kitchen Supplies";
 
@@ -49,7 +49,14 @@ SELECt *
 FROM superstore
 ORDER BY item_name ASC;
 
-#Show the stock quantity and avergae rating order the items by average rating 
-SELECT stock_quantity,average_rating 
+#Calculated the average store rating all shoppers provide for store items and ordered the results in 
+#highest-lowest order based on these average customer ratings
+SELECT AVG(average_rating) AS review, item_name, price
 FROM superstore
+GROUP BY average_rating DESC;
+
+#Selected items names from A-Z with customer satisfaction of 4/5 or higher rating
+SELECT average_rating, item_name
+FROM superstore
+WHERE average_rating>=4.0
 ORDER BY average_rating DESC;
