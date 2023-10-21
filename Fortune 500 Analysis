@@ -57,3 +57,44 @@ VALUES
     ('Company II', 'Telecommunications', 110.5, 2000, 1, 21, 12, 4.9),
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
+
+
+#ANALYSIS
+
+# Assign all the companies in Technology industry as 'High', 'Middle', 'Low' based on maternity leave offer & average employee tenure 
+SELECT company_name, avg_employee_tenure,
+CASE 
+    WHEN maternity_leave_weeks>=10 THEN 'High'
+    WHEN maternity_leave_weeks>=8 THEN 'Middle'
+    WHEN maternity_leave_weeks>=6 THEN 'Low'
+    ELSE 'RED'
+END AS new_parent
+FROM fortune_companies
+WHERE industry = 'Technology';
+
+#What is the yearly revenue the top 3 industries make?
+SELECT industry, ROUND(SUM(revenue),1) AS Billions
+FROM fortune_companies
+GROUP BY industry
+HAVING Billions
+LIMIT 3;
+
+#What is the average employee tenure for each industry and who are those companies?
+SELECT company_name, industry, avg_employee_tenure 
+FROM fortune_companies
+GROUP BY industry 
+HAVING avg_employee_tenure;
+
+#Which companies have healthcare benefits AND at least 4 weeks of maternity leave?
+SELECT company_name,industry
+FROM fortune_companies
+WHERE healthcare_benefits=1
+AND maternity_leave_weeks>4;
+
+#Calculated the total SUM of employees the tech industry has and name the calculation tech_employees
+SELECT SUM(employees) AS tech_employees
+FROM fortune_companies
+WHERE industry = 'Technology';
+
+
+
