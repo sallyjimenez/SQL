@@ -1,0 +1,100 @@
+# For this project, I downloaded Sephora Product & Skincare Reviews data from Kaggle.
+# Then I reduced the data and created a table to insert Sephora data into.
+# Finally, I performed analytics on the data using SQL. 
+
+CREATE TABLE skincare_products (
+    company_id INTEGER PRIMARY KEY,
+    product_id TEXT, 
+    product_name TEXT,
+    brand_name TEXT,
+    rating REAL,
+    reviews INTEGER,
+    price_usd INTEGER,
+    highlights TEXT,
+    tertiary_category TEXT
+    
+);
+
+INSERT INTO skincare_products (product_id, product_name, brand_name, rating, reviews, price_usd, highlights, tertiary_category)
+VALUES
+    ('P476679', 'Multi-Sculpt High-Performance Gua Sha', 'FaceGym', 4.9, 83, 65, 'Good for: Loss of firmness, Good for: Dullness/Uneven Texture, Hypoallergenic', 'Anti-Aging'), 
+    ('P503906', 'DRx SpectraLite LED EyeCare Max Pro', 'Dr. Dennis Gross Skincare', 5.0, 5, 199, 'Good for: Dullness/Uneven Texture, Good for: Loss of firmness, Good for: Dark Circles', 'Anti-Aging'),
+    ('P383182', 'Wrinkle Reducer Trinity Attachment', 'NuFACE', 2.7, 14, 159, 'Good for: Dullness/Uneven Texture, Good for: Loss of firmness', 'Anti-Aging'),
+    ('P468652', 'UFO 2', 'FOREO', 4.4, 38, 299, 'Best for Dry, Combo, Normal Skin, Good for: Dryness', 'Anti-Aging'),
+    ('P504417', 'Acne Treatment Gel', 'SEPHORA COLLECTION', 5.0, 1, 20, 'Vegan, Clean + Planet Positive, Good for: Acne/Blemishes, Salicylic Acid, Best for Oily, Combo, Normal Skin', 'Treatments'),
+    ('P428250', 'Oil-Absorbing Pore Treatment Strips', 'Peace Out', 4.0, 1562, 19, 'Best for Oily Skin, Good for: Pores, Clean at Sephora, Best for Oily, Combo, Normal Skin, Without Parabens, Cruelty-Free', 'Treatments'),
+    ('P461161', 'FAB Pharma BHA Acne Spot Treatment Gel 2% Salicylic Acid', 'First Aid Beauty', 4.3, 77, 26, 'Good for: Pores, Good for: Acne/Blemishes, Salicylic Acid, Cruelty-Free, Vegan, Clean at Sephora', 'Treatments'),
+    ('P385432', 'Acne Solutions Clinical Clearing Gel', 'CLINIQUE', 4.2, 1079, 32, 'Good for: Acne/Blemishes, Salicylic Acid, Oil Free, Gluten Free, Fragrance Free', 'Treatments'),
+    ('P388262', 'GENIUS Ultimate Anti-Aging Eye Cream', 'Algenist', 3.8, 116, 74, 'Vegan, Collagen, Hypoallergenic, Good for: Loss of firmness, Best for Dry, Combo, Normal Skin', 'Eye Care'),
+    ('P439626', 'Black Tea Firming Eye Serum', 'fresh', 3.8, 63, 72, 'Clean at Sephora, Good for: Loss of firmness', 'Eye Care'),
+    ('P442838', 'Barrier+ Triple Lipid-Boost 360° Brightening Eye Cream', 'Skinfix', 4.3, 934, 44, 'Vegan, Clean + Planet Positive, Fragrance Free, Gluten Free, Cruelty-Free', 'Eye Care'),
+    ('P504517', 'Brightening Eye Cream Mineral SPF 15 with Peptides', 'Soleil Toujours', 4.9, 15, 68, 'Vegan, Without Oxybenzone, Clean + Planet Positive, Good for: Dark Circles, Good for: Anti-Aging, Reef Safe SPF', 'Eye Care'),
+    ('P502479', 'Kombucha + 10% AHA Liquid Exfoliant with Lactic Acid and Glycolic Acid', 'Youth To The People', 4.6, 81, 42, 'Good for: Dullness/Uneven Texture, Lactic Acid, Clean + Planet Positive, AHA/Glycolic Acid, Fragrance Free, Good for: Dark spots', 'Cleansers'),
+    ('P469514', 'CLEAR Anti-Redness Exfoliating Solution with 2% Salicylic Acid', 'Paulas Choice', 4.7, 55, 34, 'Good for: Acne/Blemishes, Good for: Pores, Good for: Dullness/Uneven Texture, Salicylic Acid, Oil Free, Good for: Redness', 'Cleansers'),
+    ('P504786', 'Solution Skin-Perfecting Daily Chemical Exfoliator', 'Glossier', 3.7, 21, 26, 'Vegan, Good for: Dullness/Uneven Texture, Clean at Sephora, AHA/Glycolic Acid, Salicylic Acid, Cruelty-Free', 'Cleansers'),
+    ('P122718', 'Exfoliating Face Scrub', 'CLINIQUE', 4.6, 1194, 26, 'Best for Oily Skin, Good for: Dullness/Uneven Texture, Without Phthalates, Fragrance Free, Without Parabens', 'Cleansers'),
+    ('P444615', 'Witch Hazel & Rosewater Toner', 'Mario Badescu', 4.1, 34, 14, 'Without Parabens, Without Sulfates SLS & SLES, Cruelty-Free, Vegan', 'Toners'),
+    ('P500774', 'Clarifying Toner with Niacinamide and Zinc', 'SEPHORA COLLECTION', 4.4, 18, 14, 'Good for: Pores, Clean + Planet Positive, Fragrance Free, Good for: Acne/Blemishes, Best for Oily, Combo, Normal Skin, Niacinamide', 'Toners'),
+    ('P504778', 'Invisible Shield Water-Gel Transparent Sunscreen SPF 35', 'Glossier', 4.2, 11, 25, 'Vegan, Natural Finish, Clean at Sephora, Good for: Anti-Aging, SPF, Cruelty-Free', 'Sunscreen'),
+    ('P481989', 'Watermelon Glow Niacinamide Sunscreen SPF 50', 'Glow Recipe', 3.8, 1293, 35, 'Vegan, Hyaluronic Acid, Good for: Dullness/Uneven Texture, Clean + Planet Positive, Hydrating, SPF, Niacinamide, Cruelty-Free', 'Sunscreen'),
+    ('P456218', 'Glowscreen Sunscreen SPF 40 PA+++ with Hyaluronic Acid + Niacinamide', 'Supergoop!', 4.2, 2049, 38, 'Vegan, Radiant Finish, Allure 2020 Best of Beauty Award Winner, Clean at Sephora', 'SPF')
+    ;
+
+#ANALYSIS 
+#What are the top-rated skincare brands in the dataset, and what are their ratings? Rename those results as top rated.
+SELECT brand_name, rating AS top_rated
+FROM skincare_products
+ORDER BY rating DESC;
+
+
+#Which skincare products have the most reviews, and what is the number of reviews for each?
+SELECT product_name, reviews 
+FROM skincare_products
+ORDER BY reviews DESC;
+
+
+#What is the average rating for all skincare products in the dataset?
+SELECT ROUND(AVG(rating),1) AS avg_rating
+FROM skincare_products;
+
+
+#How many skincare products have a rating above 4.5?
+SELECT COUNT(*) 
+FROM skincare_products
+WHERE rating>4.5;
+
+
+#What is the average price of skincare products in the dataset?
+SELECT ROUND(AVG(price_usd),1) AS avg_price_usd
+FROM skincare_products;
+
+
+#Which brand has the most skincare products in the dataset, and how many products do they have?
+SELECT brand_name, COUNT(*) AS product_count
+FROM skincare_products
+GROUP BY brand_name
+ORDER BY product_count DESC
+LIMIT 1;
+
+#Which skincare products have a rating above 4.0 and a price below $30?
+SELECT product_name, rating, price_usd
+FROM skincare_products
+WHERE rating>4.0
+AND price_usd<30;
+
+
+#What are the top 5 skincare products and brand with the highest number of highlights in their descriptions?
+SELECT product_name, brand_name, highlights
+FROM skincare_products
+ORDER BY LENGTH(highlights) DESC
+LIMIT 5;
+
+
+#What is the total number of reviews for all skincare products in the dataset?
+SELECT SUM(reviews) AS total_reviews
+FROM skincare_products;
+
+
+
+
+
